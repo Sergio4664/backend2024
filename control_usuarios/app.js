@@ -48,12 +48,12 @@ app.get("/usuarios/:id", (req, res) => {
 app.post("/usuarios",(req, res) => {
   const {nombre, apellidos, email} = req.body;
 
-    // Validar que todos los campos estén presentes
+    
     if (!nombre || !apellidos || !email) {
       res.status(404).send({ error: "Todos los campos (nombre, apellidos, email) son obligatorios" });
       return;
     }
-  // Validar que el email no se repita
+ 
   const emailExistente = usuarios.find((usuario) => usuario.email === email);
   if (emailExistente) {
     res.status(400).send({ error: "El correo electrónico ya está registrado" });
@@ -62,7 +62,7 @@ app.post("/usuarios",(req, res) => {
   
   usuarios.push({id: usuarios.length +1, nombre, apellidos, email});
   
-  //console.log(req.body);
+  
   res.status(201).send("El usuario se agregó correctamente");
 
 });
