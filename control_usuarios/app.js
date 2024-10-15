@@ -14,7 +14,7 @@ const usuarios = [
   { id: 2,
     nombre: "Sergio",
     apellidos: "Cervantes",
-    email: "cervantes2000@gmail.com",
+    email: "cervantes247@gmail.com",
   },
 ];
 
@@ -54,8 +54,8 @@ app.post("/usuarios",(req, res) => {
       return;
     }
  
-  const emailExistente = usuarios.find((usuario) => usuario.email === email);
-  if (emailExistente) {
+  const emailE = usuarios.find((usuario) => usuario.email === email);
+  if (emailE) {
     res.status(400).send({ error: "El correo electrónico ya está registrado" });
     return;
   }
