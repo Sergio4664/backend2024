@@ -67,6 +67,52 @@ app.post("/usuarios",(req, res) => {
 
 });
 
+app.put("/usuarios/:id", (req,res) => {
+  const {nombre, apellidos, email} = req.body;
+
+  const id = +req.params.id;
+    
+    if (!nombre || !apellidos || !email) {
+      res.status(404).send({ error: "Todos los campos (nombre, apellidos, email) son obligatorios" });
+      return;
+    }
+    if(isNaN(+id)) {
+      res.status(400).send({error: "El id debe ser número"});
+      return
+      };
+    
+      //console.log(typeof +id);
+      //console.log(params);
+    
+      const usuario = usuarios.find((usuario) => usuario.id === +id);
+    
+      if(usuario === undefined){
+        res.status(400).send({error: `El usuario con id ${id} no existe`});
+        return;
+      };
+
+  // Verificar si el email ya está registrado en otro usuario*/
+  const emailExisteEnOtroUsuario = usuarios.find((u) => u.email === email && u.id !== id);
+    
+  if (emailExisteEnOtroUsuario) {
+      console.log("El email ya existe en otro usuario");
+      res.status(400).send({ error: "El email ya existe en otro usuario" });
+      return;
+  }
+
+  // Actualizar el usuario
+  usuario.nombre = nombre;
+  usuario.apellidos = apellidos;
+  usuario.email = email;
+
+  console.log("Usuario actualizado:", usuario);
+  res.status(200).send("El usuario se actualizó correctamente");
+});
+
+app.patch("/usuarios/:id", (req,res) => {
+  
+});
+
 app.listen(3000, () => {
     console.log("Servidor cooriendo en http://localhost:3000")
 });
