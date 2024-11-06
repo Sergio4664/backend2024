@@ -1,5 +1,6 @@
 const {request , response} =  require('express');
 const pool = require('../db/connection');
+const { usersQueries} = require('../models/users');
 
 /*const users = [
     {id: 1, name: 'John Doe'},
@@ -7,21 +8,21 @@ const pool = require('../db/connection');
     {id: 3, name: 'Bob Smith'},
 ];*/
 
-const getAll= async (req = request, res= response) => {
+const getAllUsers= async (req = request, res= response) => {
   let conn;
   try{
     conn = await pool.getConnection();
-    const users = await conn.query('SELECT * FROM users');
+    const users = await conn.query(usersQueries.getAll);
     res.send(users);
   }catch(error){
-    res.status(500).send('Internal server error');
+    res.status(500).send(error);
     return;
   }finally{
     if(conn) conn.end();
   }
 }
 
-const getById= (req = request, res= response) => {
+const getUserById = async(req = request, res= response) => {
     const {id} = req.params;
 
     if(isNaN(id)){
@@ -29,14 +30,24 @@ const getById= (req = request, res= response) => {
         return;
     }
 
-    const user = users.find(user => user.id === +id);
-    if(!user){
+    let conn;
+    try{
+      conn = await pool.getConnection();
+      const user = conn.query(usersQueries.getById,[+id]);
+      if(!user){
         res.status(404).send('User not found');
         return;
     } 
-
     res.send(user);
-}// Agregar un nuevo usuario
+    } catch(error){
+        res.status(500).send(error);
+        return;
+      }finally{
+        if(conn) conn.end();
+      }
+
+}
+// Agregar un nuevo usuario
 const addUser = (req = request, res = response) => {
     const { name } = req.body;
     if (!name) {
@@ -92,4 +103,4 @@ const addUser = (req = request, res = response) => {
     res.status(204).send(); // 204 No Content indica éxito sin contenido adicional
   };
   
-  module.exports = { getAll, getById, addUser, updateUser, deleteUser }; 
+  module.exports = { getAllUsers, getUserById, addUser, updateUser, deleteUser }; 
