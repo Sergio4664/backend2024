@@ -1,12 +1,8 @@
 GET http://localhost:3000/users/
+//mostrar todos los usuarios
 
 ###
-GET http://localhost:3000/users/1
-
-
-###
-
-GET http://localhost:3000/users/1/
+GET http://localhost:3000/users/3/
 //done miestra un usuario dependiendo del id q
 
 ###
@@ -14,7 +10,9 @@ POST http://localhost:3000/users/
 Content-Type: application/json
 
 {
-  "name": "cambiale" 
+  "username": "batman",
+  "password": "batmobile",
+  "email": "batman@batmobile.com"
   //para agregar un usuario
 }
 
@@ -24,13 +22,11 @@ PUT http://localhost:3000/users/2
 Content-Type: application/json
 
 {
-  "name": "cambiale" 
+  "name": "Pao" 
   //para actualizar el usuario
 }
 
 
 ###
-DELETE http://localhost:3000/users/2/ 
-//para eliminar 
-
-
+DELETE http://localhost:3000/users/5/ 
+//para eliminar
