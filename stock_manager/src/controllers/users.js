@@ -95,47 +95,69 @@ let conn;
 };
 
 // Actualizar un usuario existente
-const updateUser = (req = request, res = response) => {
-  const { id } = req.params;
-  const { name } = req.body;
-
-  if (isNaN(id)) {
-    res.status(400).send('Invalid ID');
+const updateUser = async (req = request, res = response) => {
+  const {id } = req.params;
+  const {username} = req.body;
+  if (isNaN(id) || !username) {
+    res.status(400).send('Invalid request');
     return;
   }
 
-  const user = users.find((user) => user.id === +id);
-  if (!user) {
+  let conn;  
+  try{
+    conn = await pool.getConnection();
+
+  const user = await conn.query(usersQueries.getById,[+id]);
+  if (user.length === 0) {
     res.status(404).send('User not found');
     return;
   }
 
-  if (!name) {
-    res.status(400).send('Name is required');
+  const result = await conn.query(usersQueries.update,[username,+id]);
+  if (result.affectedRows === 0) {
+    res.status(500).send('not be updaed');
     return;
   }
 
-  user.name = name;
-  res.send(user);
+  res.send('User updated');
+}catch(error){
+  res.status(500).send(error);
+}finally{
+  if (conn) conn.end();
+}
 };
 
 // Eliminar un usuario
-const deleteUser = (req = request, res = response) => {
+const deleteUser = async (req = request, res = response) => {
   const { id } = req.params;
 
   if (isNaN(id)) {
-    res.status(400).send('Invalid ID');
+    res.status(400).send('Invalid request');
     return;
   }
 
-  const index = users.findIndex((user) => user.id === +id);
-  if (index === -1) {
-    res.status(404).send('User not found');
-    return;
-  }
+  let coon;
+  try{
+    conn = await pool.getConnection();
+    
+    const user = await conn.query(usersQueries.getById,[+id]);
+    if (user.length ===0){
+      res.status(404).send('User not found')
+      return;
+    }
 
-  users.splice(index, 1);
-  res.status(204).send(); // 204 No Content indica éxito sin contenido adicional
+    const deleteuser = await conn.query(usersQueries.delete, [+id]);
+    if (deleteuser.affectedRows === 0) {
+      res.status(500).send('User could not be deleted');
+      return;
+    }
+
+    res.send("User deleted succefully");
+  } catch (error) {
+    res.status(500).send(error);
+  } finally {
+    if (conn) conn.end();
+  }
 };
 
 module.exports = { getAllUsers, getUserById, addUser, updateUser, deleteUser };
