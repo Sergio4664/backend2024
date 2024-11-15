@@ -10,8 +10,8 @@ POST http://localhost:3000/users/
 Content-Type: application/json
 
 {
-  "username": "batman",
-  "password": "batmobile",
+  "username": "bryan",
+  "password": "bryanmyers",
   "email": "batman@batmobile.com"
   //para agregar un usuario
 }
@@ -31,7 +31,14 @@ Content-Type: application/json
 DELETE http://localhost:3000/users/3
 //para eliminar
 
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
 
+{
+  "username": "iroman",
+  "password": "jarvis"
+}
 
 
 
