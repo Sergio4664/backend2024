@@ -18,11 +18,12 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:3000/users/1
+PUT http://localhost:3000/users/5
 Content-Type: application/json
 
 {
-  "username": "Pao" 
+  "username": "Pao",
+  "password": "bryanmyers"
   //para actualizar el usuario
 }
 
