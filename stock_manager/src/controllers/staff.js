@@ -23,7 +23,7 @@ const getStaffById = async (req = request, res = response) => {
         res.status(400).send('Invalid ID');
         return;
     }
-
+    
     let conn;
     try {
         conn = await pool.getConnection();
