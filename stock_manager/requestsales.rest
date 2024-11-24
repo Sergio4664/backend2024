@@ -1,0 +1,40 @@
+### Obtener todas las ventas (GET)
+GET http://localhost:3000/sales
+
+### Obtener una venta por ID (GET)
+GET http://localhost:3000/sales/8
+
+### Crear una nueva venta (POST)
+POST http://localhost:3000/sales
+Content-Type: application/json
+
+{
+  "client_rfc": "A123",
+    "product_id": 6,
+    "quantity": 50,
+    "sale_date": "2024-11-23T11:00:00",
+    "payment_method": "credit",
+    "ticket": "TICKET3",
+    "invoice": "INV2"
+}
+
+
+### Actualizar una venta existente (PUT)
+//como equipo pusimos el PUT y el codigo del endponit de actualizar la compra
+//aunque regularmente al finalizar la compra no se puede editar, solamente borrar
+//al momento de borra nuestro codigo regresa la cantidad de producto comprado.
+PUT http://localhost:3000/sales/11
+Content-Type: application/json
+
+{
+    "client_rfc": "A12",
+    "product_id": 7,
+    "quantity": 50,
+    "sale_date": "2024-11-23T11:00:00",
+    "payment_method": "credit",
+    "ticket": "TICKET1",
+    "invoice": "INV1"
+}
+
+### Eliminar una venta (DELETE)
+DELETE http://localhost:3000/sales/13
