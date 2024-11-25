@@ -24,16 +24,16 @@ Content-Type: application/json
 }
 
 ### Actualizar un producto 
-PUT http://localhost:3000/products/1 
+PUT http://localhost:3000/products/5
 Content-Type: application/json
 
 {
-  "product": "Updated Product",
-  "description": "Updated product description.",
+  "product": "Pan",
+  "description": "El panadero con el pan.",
   "stock": 120,
-  "measurement_unit": "unit",
-  "price": 55.0,
-  "discount": 15
+  "measurement_unit": "piece",
+  "price": 55,
+  "discount": 10
 }
 
 ### Eliminar un producto (marcar como inactivo)

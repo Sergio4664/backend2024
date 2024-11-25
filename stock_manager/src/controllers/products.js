@@ -106,9 +106,10 @@ const updateProduct = async (req = request, res = response) => {
   let conn;
   try {
     conn = await pool.getConnection();
+    
     const updatedProduct = await conn.query(productsQueries.update, [product, description, stock, measurement_unit, price, discount, +id]);
     if (updatedProduct.affectedRows === 0) {
-      res.status(404).send('Product not found');
+      res.status(404).send('Product couldn not be updapted');
       return;
     }
     res.send('Product updated successfully');
