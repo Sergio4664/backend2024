@@ -1,30 +1,28 @@
 const express = require('express');
+const usersRoutes = require('./routes/users');
 
 class Server {
-    constructor() {
+    constructor(){
         this.app = express();
         this.port = 3000;
 
-         // Configurar middlewares
-         this.middlewares();
-
-         // Configurar rutas
-         this.routes();
+        this.middlewares();
+        this.routes();
     }
-    middlewares() {
-        this.app.use(express.json()); // Habilitar el parseo de JSON
+
+    middlewares(){
+        this.app.use(express.json());
     }
 
     routes(){
-
+        this.app.use('/users', usersRoutes);
     }
 
-    // Método para iniciar el servidor
-    start() {
+    start(){
         this.app.listen(this.port, () => {
-            console.log(`Server listening on port ${this.port}`);
+        console.log(`Server is running on port ${this.port}`);
         });
     }
 }
 
-module.exports = { Server };
+module.exports = Server;
