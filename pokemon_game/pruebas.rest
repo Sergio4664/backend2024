@@ -22,10 +22,10 @@ Content-Type: application/json
 
 {
     "first_name": "Irivng",
-    "last_name": "Vital",
-    "email": "irving@gmail.com"
+    "last_name": "Cervantes",
+    "email": "irvingcervantes@gmail.com"
 }
 
 ###
 
-DELETE http://localhost:3000/users/1
+DELETE http://localhost:3000/users/2

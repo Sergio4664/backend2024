@@ -1,0 +1,29 @@
+GET http://localhost:3000/pokemons
+
+###
+//obtener por id
+GET http://localhost:3000/pokemons/2
+
+###
+//crear
+POST http://localhost:3000/pokemons
+Content-Type: application/json
+
+{
+    "name": "Sergio",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"
+}
+
+###
+//editar
+PUT http://localhost:3000/pokemons/1
+Content-Type: application/json
+
+{
+    "name": "mega-charizard",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6-mega.svg"
+}
+
+###
+//eliminar
+DELETE http://localhost:3000/pokemons/155
