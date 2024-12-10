@@ -11,19 +11,23 @@ Content-Type: application/json
 
 {
     "name": "Sergio",
-    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/152.svg"
 }
 
 ###
 //editar
-PUT http://localhost:3000/pokemons/1
+PUT http://localhost:3000/pokemons/153
 Content-Type: application/json
 
 {
-    "name": "mega-charizard",
+    "name": "mew",
     "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6-mega.svg"
 }
 
 ###
 //eliminar
 DELETE http://localhost:3000/pokemons/155
+
+
+###
+GET http://localhost:3000/pokemons/play

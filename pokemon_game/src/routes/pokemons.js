@@ -9,10 +9,14 @@ const { getAllPokemons,
 const routes = Router();
 
 routes.get('/', getAllPokemons);
-routes.get('/:id', getPokemonById);
 routes.get('/play', get3RandomPokemons);
+routes.get('/:id', getPokemonById);
+
+
 routes.post('/', createPokemon);
+
 routes.put('/:id', updatePokemon);
+
 routes.delete('/:id', deletePokemon);
 
 module.exports = routes;
