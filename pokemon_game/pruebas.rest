@@ -5,17 +5,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxN
 ###
 GET http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIyNjc4LCJleHAiOjE3MzQwMjI5Nzh9.in9YpLOJArgDhnjX0qk5QRbOVUuz-sswBoFcgiSkm8A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIzMTU1LCJleHAiOjE3MzQwMjM0NTV9.5MfDt7ymf7zoQajwvckHE-eKPMLtjEpe02qBf5kgPI4
 
 ###
 GET http://localhost:3000/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIyNjc4LCJleHAiOjE3MzQwMjI5Nzh9.in9YpLOJArgDhnjX0qk5QRbOVUuz-sswBoFcgiSkm8A
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIzMTU1LCJleHAiOjE3MzQwMjM0NTV9.5MfDt7ymf7zoQajwvckHE-eKPMLtjEpe02qBf5kgPI4
 ###
+
 POST http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIyOTMxLCJleHAiOjE3MzQwMjMyMzF9.XTd50bXs_rj0loCltQOB-5005DHD1VdiaAZUe6J5f7w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNfYWRtaW4iOjEsImlhdCI6MTczNDAyMzU2NiwiZXhwIjoxNzM0MDIzODY2fQ.jpT0NE27HPtmfHXf9uSDjEUqU7jXqtzji860xL-Ot_A
 
 {
     "first_name": "Martin",
