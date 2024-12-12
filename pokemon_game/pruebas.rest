@@ -1,18 +1,27 @@
+GET http://localhost:3000/users/protected
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIxNTI4LCJleHAiOjE3MzQwMjE4Mjh9.mLATBZ0zaP8qhET0W9E7QhENDnF6I6lWAl-BEOWQuxo
+
+###
 GET http://localhost:3000/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIyNjc4LCJleHAiOjE3MzQwMjI5Nzh9.in9YpLOJArgDhnjX0qk5QRbOVUuz-sswBoFcgiSkm8A
 
 ###
 GET http://localhost:3000/users/1
-
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIyNjc4LCJleHAiOjE3MzQwMjI5Nzh9.in9YpLOJArgDhnjX0qk5QRbOVUuz-sswBoFcgiSkm8A
 
 ###
 POST http://localhost:3000/users
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIyOTMxLCJleHAiOjE3MzQwMjMyMzF9.XTd50bXs_rj0loCltQOB-5005DHD1VdiaAZUe6J5f7w
 
 {
-    "first_name": "Irivng",
-    "last_name": "Vital",
-    "email": "irving@gmail.com",
-    "password": "irving123"
+    "first_name": "Martin",
+    "last_name": "Osorio",
+    "email": "martin@gmail.com",
+    "password": "martin123"
 }
 
 ###

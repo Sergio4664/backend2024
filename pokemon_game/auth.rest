@@ -1,0 +1,12 @@
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "sergio@gmail.com",
+    "password": "sergio123"
+}
+
+###
+GET http://localhost:3000/users/protected
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM0MDIyOTMxLCJleHAiOjE3MzQwMjMyMzF9.XTd50bXs_rj0loCltQOB-5005DHD1VdiaAZUe6J5f7w
